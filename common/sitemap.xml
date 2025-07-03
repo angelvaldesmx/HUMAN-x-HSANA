@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Páginas del sitio público (Netlify - frontend) -->
+  <url>
+    <loc>https://humanxhsana.angelvaldesmx.qzz.io/</loc>
+    <priority>1.0</priority>
+    <changefreq>daily</changefreq>
+  </url>
+
+  <url>
+    <loc>https://humanxhsana.angelvaldesmx.qzz.io/airdrop.html</loc>
+    <priority>0.9</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+
+  <url>
+    <loc>https://humanxhsana.angelvaldesmx.qzz.io/contacto.html</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <url>
+    <loc>https://humanxhsana.angelvaldesmx.qzz.io/privacy-policy.html</loc>
+    <priority>0.6</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+
+  <url>
+    <loc>https://humanxhsana.angelvaldesmx.qzz.io/terms-of-service.html</loc>
+    <priority>0.6</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+
+  <url>
+    <loc>https://humanxhsana.angelvaldesmx.qzz.io/whitepaper.pdf</loc>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <!-- Páginas PHP dinámicas (InfinityFree - backend) -->
+  <url>
+    <loc>https://token.humanxhsana.angelvaldesmx.qzz.io/airdrop.php</loc>
+    <priority>0.9</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+
+  <url>
+    <loc>https://token.humanxhsana.angelvaldesmx.qzz.io/login.php</loc>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <url>
+    <loc>https://token.humanxhsana.angelvaldesmx.qzz.io/contacto.php</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <url>
+    <loc>https://token.humanxhsana.angelvaldesmx.qzz.io/whitepaper.pdf</loc>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+</urlset>
