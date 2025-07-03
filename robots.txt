@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /php/
+Disallow: /private/
+Allow: /
+
+Sitemap: https://humanxhsana.angelvaldesmx.qzz.io/sitemap.xml
