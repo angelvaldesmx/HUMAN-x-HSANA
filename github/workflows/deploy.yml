@@ -20,4 +20,4 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           port: ${{ secrets.FTP_PORT }}
           local-dir: ./hsana-site   # Ajusta si tu carpeta local se llama diferente
-          server-dir: /public_html  # Carpeta donde subirás en el hosting (ajusta si es otra)
+          server-dir: /htdocs  # Carpeta donde subirás en el hosting (ajusta si es otra)
