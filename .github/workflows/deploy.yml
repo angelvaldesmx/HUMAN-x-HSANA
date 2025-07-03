@@ -4,7 +4,7 @@ on:
   push:
     paths:
       - 'infinityfree/**'
-      - 'shared/**'
+      - 'common/**'
   workflow_dispatch:
 
 jobs:
@@ -17,7 +17,7 @@ jobs:
       - name: Copy shared assets to infinityfree
         run: |
           mkdir -p infinityfree/assets
-          cp -r shared/* infinityfree/assets/
+          cp -r common/* infinityfree/assets/
 
       - name: Deploy via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
