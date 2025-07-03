@@ -4,7 +4,7 @@ on:
   push:
     paths:
       - 'netlify/**'
-      - 'shared/**'
+      - 'common/**'
   workflow_dispatch:
 
 jobs:
@@ -16,7 +16,7 @@ jobs:
       - name: Copy shared assets to netlify
         run: |
           mkdir -p netlify/assets
-          cp -r shared/* netlify/assets/
+          cp -r common/* netlify/assets/
 
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v2
