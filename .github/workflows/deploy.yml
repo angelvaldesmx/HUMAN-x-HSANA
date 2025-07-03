@@ -21,4 +21,4 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           port: ${{ secrets.FTP_PORT }}  # Puedes omitir si es 21
           local-dir: ./
-          server-dir: /htdocs
+          server-dir: /htdocs/
