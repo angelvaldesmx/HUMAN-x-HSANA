@@ -19,5 +19,5 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           port: ${{ secrets.FTP_PORT }}
-          local-dir: ./hsana-site   # Ajusta si tu carpeta local se llama diferente
+          local-dir: ./home/vol10_4/infinityfree.com/if0_39373574   # Ajusta si tu carpeta local se llama diferente
           server-dir: /htdocs  # Carpeta donde subirás en el hosting (ajusta si es otra)
