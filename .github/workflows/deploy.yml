@@ -1,24 +1,29 @@
-name: Deploy to InfinityFree via FTP
+name: Deploy to InfinityFree
 
 on:
   push:
-    branches:
-      - main  # Cambia esto si usas otra rama
+    paths:
+      - 'infinityfree/**'
+      - 'shared/**'
+  workflow_dispatch:
 
 jobs:
-  ftp-deploy:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout the repository
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
-      - name: FTP Deploy
-        uses: SamKirkland/FTP-Deploy-Action@4.3.0
+      - name: Copy shared assets to infinityfree
+        run: |
+          mkdir -p infinityfree/assets
+          cp -r shared/* infinityfree/assets/
+
+      - name: Deploy via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
           server: ${{ secrets.FTP_HOST }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          port: ${{ secrets.FTP_PORT }}  # Puedes omitir si es 21
-          local-dir: ./
+          local-dir: ./infinityfree/
           server-dir: /htdocs/
