@@ -1,0 +1,27 @@
+name: Deploy to Netlify
+
+on:
+  push:
+    paths:
+      - 'netlify/**'
+      - 'shared/**'
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Copy shared assets to netlify
+        run: |
+          mkdir -p netlify/assets
+          cp -r shared/* netlify/assets/
+
+      - name: Deploy to Netlify
+        uses: nwtgck/actions-netlify@v2
+        with:
+          publish-dir: ./netlify
+          production-deploy: true
+          netlify-auth-token: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          netlify-site-id: ${{ secrets.NETLIFY_SITE_ID }}
