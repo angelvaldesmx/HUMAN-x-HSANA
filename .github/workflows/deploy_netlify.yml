@@ -1,4 +1,4 @@
-name: Deploy to Netlify
+name: 🚀 Deploy a Netlify
 
 on:
   push:
@@ -10,18 +10,20 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
 
-      - name: Copy shared assets to netlify
+    steps:
+      - name: 🔄 Checkout del repositorio
+        uses: actions/checkout@v4
+
+      - name: 🧩 Copiar assets compartidos a Netlify
         run: |
           mkdir -p netlify/assets
-          cp -r common/* netlify/assets/
+          cp -r common/assets/* netlify/assets/
 
-      - name: Install Netlify CLI
+      - name: 📦 Instalar Netlify CLI
         run: npm install -g netlify-cli
 
-      - name: Deploy with Netlify CLI
+      - name: 🚀 Hacer deploy a Netlify
         run: netlify deploy --dir=netlify --prod
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
