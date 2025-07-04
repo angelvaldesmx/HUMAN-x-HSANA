@@ -235,3 +235,55 @@ body {
 .hidden {
   display: none;
   }
+
+/* 📱 RESPONSIVO PARA PANTALLAS PEQUEÑAS */
+@media (max-width: 768px) {
+  .language-options {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.4rem;
+  }
+
+  .language-options button {
+    padding: 0.5rem 1.2rem;
+    font-size: 0.85rem;
+  }
+
+  .overlay-text-loop {
+    font-size: 0.9rem;
+    padding: 0 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .bubble-container {
+    padding: 2rem 1rem;
+    gap: 1.2rem;
+  }
+
+  .bubble {
+    width: 90px;
+    height: 90px;
+  }
+
+  .bubble span {
+    font-size: 0.7rem;
+  }
+
+  .manifesto-content {
+    max-width: 90%;
+    padding: 1rem;
+  }
+
+  .manifesto-content h2 {
+    font-size: 1.5rem;
+  }
+
+  .manifesto-content p {
+    font-size: 0.95rem;
+  }
+
+  #language-loop-text p {
+    font-size: 0.8rem;
+    opacity: 0.03;
+  }
+}
