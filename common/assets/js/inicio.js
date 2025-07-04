@@ -74,7 +74,9 @@ function generateParticleText() {
 // Llenar múltiples copias del texto de bienvenida
 const welcomeContainer = document.getElementById('language-loop-text');
 const welcomeMessage = "Selecciona tu idioma • Choose your language • Sélectionnez votre langue • 选择你的语言 • اختر لغتك • भाषा चुनें";
-for (let i = 0; i < 20; i++) {
+const copies = Math.ceil(window.innerHeight / 40); // Aproximadamente 1 cada 40px
+
+for (let i = 0; i < copies; i++) {
   const p = document.createElement('p');
   p.textContent = welcomeMessage;
   welcomeContainer.appendChild(p);
