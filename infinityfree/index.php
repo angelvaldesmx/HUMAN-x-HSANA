@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>HUMAN x HSANA – Inicio</title>
 
-  <link rel="stylesheet" href="../common/assets/css/inicio.css" />
+  <link rel="stylesheet" href="/assets/css/inicio.css" />
   <link rel="icon" href="../common/assets/images/favicon.ico" />
   <meta name="description" content="Selecciona tu idioma para comenzar con HUMAN x HSANA – Sanar con dignidad." />
 </head>
@@ -65,6 +65,6 @@
     </div>
   </div>
 
-  <script src="../common/assets/js/inicio.js"></script>
+  <script src="/assets/js/inicio.js"></script>
 </body>
 </html>
