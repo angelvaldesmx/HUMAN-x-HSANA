@@ -1,25 +1,26 @@
-name: Deploy to InfinityFree
+name: 🚀 Deploy a InfinityFree
 
 on:
   push:
     paths:
       - 'infinityfree/**'
       - 'common/**'
-  workflow_dispatch:
+  workflow_dispatch:  # Permite ejecutarlo manualmente desde la pestaña "Actions"
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: 🔄 Checkout del repositorio
+        uses: actions/checkout@v4
 
-      - name: Copy shared assets to infinityfree
+      - name: 🧩 Copiar archivos compartidos a InfinityFree
         run: |
           mkdir -p infinityfree/assets
           cp -r common/* infinityfree/assets/
 
-      - name: Deploy via FTP
+      - name: 📤 Subir archivos por FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
           server: ${{ secrets.FTP_HOST }}
