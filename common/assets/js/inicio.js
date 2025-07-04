@@ -21,51 +21,37 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Mostrar manifiesto con mensaje aleatorio
-async function showManifesto(targetPage) {
+function showManifesto(targetPage) {
   const manifesto = document.getElementById('manifesto');
   manifesto.classList.remove('hidden');
   manifesto.setAttribute('data-target', targetPage);
 
   const lang = localStorage.getItem('selectedLanguage') || 'es';
 
-  // Define el prompt personalizado
-  const prompt = `
-Eres una voz poética, rebelde y empática que habla en nombre de una comunidad que ha vivido dolor, pero que elige sanar con dignidad. 
-Genera un mensaje breve y único (máximo 2 frases) como manifiesto de bienvenida. No debe sonar a motivación barata ni frases vacías.
+  // 🎯 PROMPT incrustado directamente en el frontend
+  const prompt = encodeURIComponent(`
+    Eres un escritor de manifiestos filosóficos y poéticos con un estilo honesto, radical, empático, suave, emocional pero firme, y usas emojis con conciencia. 
+    Escribe un manifiesto breve para una comunidad de un token que busca sanar con dignidad. 
+    No uses frases motivacionales ni clichés. 
+    No repitas “Sanar con dignidad es un acto revolucionario”. 
+    El tono debe imitar a Angel Valdés. Idioma: ${lang}.
+  `);
 
-Imita el estilo de Ángel Valdés: mezcla dulzura, honestidad cruda y lenguaje coloquial. Integra uno o dos emojis que acompañen el tono, sin exagerar. 
-Usa el idioma: ${lang.toUpperCase()}.
+  // 🚀 Tu endpoint privado embebido
+  const secureEndpoint = `https://js.puter.com/v2/?lang=${lang}&prompt=${prompt}`;
 
-Evita clichés como “todo estará bien”. Usa imágenes poéticas, ideas abstractas o afirmaciones disruptivas que conmuevan y provoquen. 
-Este mensaje se mostrará al usuario después de que una burbuja explote como chicle rosado en su pantalla antes de entrar a un sitio llamado HSANA. 
-Haz que suene como un susurro íntimo o un abrazo mental.
-`;
+  fetch(secureEndpoint)
+    .then(res => res.json())
+    .then(data => {
+      document.getElementById('manifesto-text').textContent = data.text;
+    })
+    .catch(err => {
+      console.error("Error generando manifiesto:", err);
 
-  try {
-    const response = await fetch("https://js.puter.com/v2/", {
-      method: "POST",
-      headers: {
-      "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        model: "gpt-4.1", // o "gpt-3.5-turbo"
-        messages: [
-          { role: "system", content: "Eres un asistente que genera manifiestos poéticos únicos según el idioma." },
-          { role: "user", content: prompt }
-        ],
-        temperature: 0.8,
-        max_tokens: 100
-      })
+      // Mensaje fallback
+      document.getElementById('manifesto-text').textContent =
+        "Sanar con dignidad es un acto revolucionario. Este token es solo una excusa para crear comunidad. 🕊️";
     });
-
-    const data = await response.json();
-    const text = data.choices?.[0]?.message?.content || "Sanar con dignidad es un acto revolucionario. 🕊️";
-    document.getElementById('manifesto-text').textContent = text;
-  } catch (err) {
-    console.error("Error generando manifiesto:", err);
-    document.getElementById('manifesto-text').textContent =
-      "Sanar con dignidad es un acto revolucionario. Este token es solo una excusa para crear comunidad. 🕊️";
-  }
 }
 
 // Redirige después del manifiesto
