@@ -21,66 +21,84 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Mostrar manifiesto con mensaje aleatorio
-function showManifesto(targetPage) {
-  const manifesto = document.getElementById('manifesto');
-  manifesto.classList.remove('hidden');
-  manifesto.setAttribute('data-target', targetPage);
+document.addEventListener('DOMContentLoaded', () => {
+  const bubbles = document.querySelectorAll('.bubble');
 
-  const lang = localStorage.getItem('selectedLanguage') || 'es';
+  // Reemplaza esta URL con la de tu backend privado
+  const API_URL = "https://js.puter.com/v2/";
 
-  // 🎯 PROMPT incrustado directamente en el frontend
-  const prompt = encodeURIComponent(`
-    Eres un escritor de manifiestos filosóficos y poéticos con un estilo honesto, radical, empático, suave, emocional pero firme, y usas emojis con conciencia. 
-    Escribe un manifiesto breve para una comunidad de un token que busca sanar con dignidad. 
-    No uses frases motivacionales ni clichés. 
-    No repitas “Sanar con dignidad es un acto revolucionario”. 
-    El tono debe imitar a Angel Valdés. Idioma: ${lang}.
-  `);
+  // Listener para seleccionar idioma
+  window.setLanguage = function(lang) {
+    localStorage.setItem('selectedLanguage', lang);
 
-  // 🚀 Tu endpoint privado embebido
-  const secureEndpoint = `https://js.puter.com/v2/?lang=${lang}&prompt=${prompt}`;
+    document.querySelector('.language-selector').classList.add('hidden');
+    document.querySelector('.bubble-container').classList.remove('hidden');
 
-  fetch(secureEndpoint)
-    .then(res => res.json())
-    .then(data => {
-      document.getElementById('manifesto-text').textContent = data.text;
-    })
-    .catch(err => {
-      console.error("Error generando manifiesto:", err);
+    generateParticleText();
+  };
 
-      // Mensaje fallback
-      document.getElementById('manifesto-text').textContent =
-        "Sanar con dignidad es un acto revolucionario. Este token es solo una excusa para crear comunidad. 🕊️";
+  // Listener para cada burbuja
+  bubbles.forEach(bubble => {
+    bubble.addEventListener('click', () => {
+      const targetPage = bubble.getAttribute('data-page');
+      showManifesto(targetPage);
     });
-}
+  });
 
-// Redirige después del manifiesto
-function proceedToPage() {
-  const manifesto = document.getElementById('manifesto');
-  const targetPage = manifesto.getAttribute('data-target');
-  window.location.href = targetPage;
-}
+  // Mostrar manifiesto
+  function showManifesto(targetPage) {
+    const manifesto = document.getElementById('manifesto');
+    manifesto.classList.remove('hidden');
+    manifesto.setAttribute('data-target', targetPage);
 
-// Crea partículas de texto flotante
-function generateParticleText() {
-  const container = document.querySelector('.bubble-container');
-  const labels = ["HSANA", "TOKEN", "HUMAN", "HSN"];
-  for (let i = 0; i < 20; i++) {
-    const particle = document.createElement('div');
-    particle.className = 'particle-text';
-    particle.style.top = `${Math.random() * 90}%`;
-    particle.style.left = `${Math.random() * 90}%`;
-    particle.textContent = labels[Math.floor(Math.random() * labels.length)];
-    container.appendChild(particle);
+    const lang = localStorage.getItem('selectedLanguage') || 'es';
+
+    // Aquí se genera el mensaje vía API externa con prompt incluido
+    const prompt = encodeURIComponent(`
+Genera un manifiesto conciso, emotivo y contundente que refleje el espíritu de sanar con dignidad a través de comunidad, no desde la autoayuda, sino desde la resiliencia real. No uses frases genéricas, debe parecer escrito por alguien emocionalmente involucrado. Usa emojis sutiles como 🕊️, 💫, 🤍. Estilo directo, humano, empático, parecido al de Ángel Valdés. El idioma debe ser ${lang}.
+    `);
+
+    fetch(`${API_URL}?lang=${lang}&prompt=${prompt}`)
+      .then(res => res.json())
+      .then(response => {
+        document.getElementById('manifesto-text').textContent = response.text;
+      })
+      .catch(error => {
+        console.error("Error al generar el manifiesto:", error);
+        document.getElementById('manifesto-text').textContent =
+          "Sanar con dignidad es un acto revolucionario. Este token es solo una excusa para crear comunidad. 🕊️";
+      });
   }
-      }
-// Llenar múltiples copias del texto de bienvenida
-const welcomeContainer = document.getElementById('language-loop-text');
-const welcomeMessage = "Selecciona tu idioma • Choose your language • Sélectionnez votre langue • 选择你的语言 • اختر لغتك • भाषा चुनें";
-const copies = Math.ceil(window.innerHeight / 40); // Aproximadamente 1 cada 40px
 
-for (let i = 0; i < copies; i++) {
-  const p = document.createElement('p');
-  p.textContent = welcomeMessage;
-  welcomeContainer.appendChild(p);
-}
+  // Continuar a la página objetivo
+  window.proceedToPage = function() {
+    const manifesto = document.getElementById('manifesto');
+    const targetPage = manifesto.getAttribute('data-target');
+    window.location.href = targetPage;
+  };
+
+  // Crea partículas decorativas
+  function generateParticleText() {
+    const container = document.querySelector('.bubble-container');
+    const labels = ["HSANA", "TOKEN", "HUMAN", "HSN"];
+    for (let i = 0; i < 20; i++) {
+      const particle = document.createElement('div');
+      particle.className = 'particle-text';
+      particle.style.top = `${Math.random() * 90}%`;
+      particle.style.left = `${Math.random() * 90}%`;
+      particle.textContent = labels[Math.floor(Math.random() * labels.length)];
+      container.appendChild(particle);
+    }
+  }
+
+  // Texto repetido flotante tipo "plana"
+  const welcomeContainer = document.getElementById('language-loop-text');
+  if (welcomeContainer) {
+    const welcomeMessage = "Selecciona tu idioma • Choose your language • Sélectionnez votre langue • 选择你的语言 • اختر لغتك • भाषा चुनें";
+    for (let i = 0; i < 20; i++) {
+      const p = document.createElement('p');
+      p.textContent = welcomeMessage;
+      welcomeContainer.appendChild(p);
+    }
+  }
+});
