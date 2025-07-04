@@ -1,53 +1,66 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>HUMAN x HSANA — Sanar con dignidad</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HUMAN x HSANA – Inicio</title>
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico" />
-
-    <!-- CSS principal -->
-    <link rel="stylesheet" href="assets/css/style.css" />
-
-    <!-- Meta descripción para SEO -->
-    <meta name="description" content="HUMAN x HSANA: token híbrido para bienestar emocional y comunidad digna. Proyecto de Ángel Valdés." />
+  <link rel="stylesheet" href="../common/assets/css/style.css" />
+  <link rel="icon" href="../common/assets/images/favicon.ico" />
+  <meta name="description" content="Selecciona tu idioma para comenzar con HUMAN x HSANA – Sanar con dignidad." />
 </head>
 <body>
-    <header>
-        <nav>
-            <a href="index.html">
-                <img src="assets/images/logo.svg" alt="Logotipo HUMAN x HSANA" height="50" />
-            </a>
-            <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="airdrop.php">Airdrop</a></li>
-                <li><a href="contacto.php">Contacto</a></li>
-                <li><a href="whitepaper.pdf" target="_blank" rel="noopener">Whitepaper</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <main>
-        <section class="hero">
-            <h1>HUMAN x HSANA</h1>
-            <p>Sanar no debería ser un lujo. Es un acto digno.</p>
-            <a href="airdrop.php" class="btn-primary">Únete al Airdrop</a>
-        </section>
+  <!-- FONDO DE PLANETA + IDIOMAS -->
+  <div class="language-selector">
+    <img src="../common/assets/images/globe.jpg" alt="Globo terráqueo" class="planet-background" />
+    <div class="overlay-text-loop">
+      <p>Selecciona tu idioma • Choose your language • Sélectionnez votre langue • 选择你的语言 • اختر لغتك • भाषा चुनें</p>
+    </div>
+    <div class="language-options">
+      <button onclick="setLanguage('es')">Español</button>
+      <button onclick="setLanguage('en')">English</button>
+      <button onclick="setLanguage('fr')">Français</button>
+      <button onclick="setLanguage('zh')">中文</button>
+      <button onclick="setLanguage('ar')">العربية</button>
+      <button onclick="setLanguage('hi')">हिन्दी</button>
+    </div>
+  </div>
 
-        <section class="about">
-            <h2>¿Qué es HUMAN x HSANA?</h2>
-            <p>Un token híbrido que une tecnología y salud emocional para construir comunidad y dignidad.</p>
-            <a href="whitepaper.pdf" target="_blank" rel="noopener" class="btn-secondary">Lee nuestro Whitepaper</a>
-        </section>
-    </main>
+  <!-- BURBUJAS DE NAVEGACIÓN -->
+  <div class="bubble-container hidden">
+    <div class="bubble" data-page="index.html">
+      <span class="title">Inicio</span>
+      <span class="desc">Página principal del proyecto</span>
+    </div>
+    <div class="bubble" data-page="airdrop.html">
+      <span class="title">Airdrop</span>
+      <span class="desc">Únete y gana tokens</span>
+    </div>
+    <div class="bubble" data-page="contacto.html">
+      <span class="title">Contacto</span>
+      <span class="desc">Comunícate con nosotros</span>
+    </div>
+    <div class="bubble" data-page="whitepaper.pdf">
+      <span class="title">Whitepaper</span>
+      <span class="desc">Lee el documento técnico</span>
+    </div>
+    <!-- Partículas decorativas -->
+    <div class="particle-text">HSANA</div>
+    <div class="particle-text">TOKEN</div>
+    <div class="particle-text">HUMAN</div>
+    <div class="particle-text">HSN</div>
+  </div>
 
-    <footer>
-        <p>© 2025 Ángel Valdés | HUMAN x HSANA</p>
-    </footer>
+  <!-- MANIFIESTO EMERGENTE -->
+  <div class="manifesto-modal hidden" id="manifesto">
+    <div class="manifesto-content">
+      <h2 id="manifesto-title">Manifiesto</h2>
+      <p id="manifesto-text">Sanar con dignidad es un acto revolucionario. Este token es solo una excusa para crear comunidad. 🕊️</p>
+      <button onclick="proceedToPage()">Entrar</button>
+    </div>
+  </div>
 
-    <!-- JS principal -->
-    <script src="assets/js/main.js"></script>
+  <script src="../common/assets/js/main.js"></script>
 </body>
 </html>
