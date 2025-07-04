@@ -11,20 +11,24 @@
 </head>
 <body>
   <!-- Selector de idioma sobre fondo planetario -->
-  <div class="language-selector" id="language-selector">
-    <img src="../common/assets/images/globe.jpg" alt="Globo terráqueo" class="planet-background" />
-    <div class="overlay-text-loop" id="language-loop-text"></div>
-      <p>Selecciona tu idioma • Choose your language • Sélectionnez votre langue • 选择你的语言 • اختر لغتك • भाषा चुनें</p>
-    </div>
-    <div class="language-options">
-      <button onclick="setLanguage('es')">Español</button>
-      <button onclick="setLanguage('en')">English</button>
-      <button onclick="setLanguage('fr')">Français</button>
-      <button onclick="setLanguage('zh')">中文</button>
-      <button onclick="setLanguage('ar')">العربية</button>
-      <button onclick="setLanguage('hi')">हिन्दी</button>
-    </div>
+<div class="language-selector">
+  <img src="../common/assets/images/globe.jpg" alt="Globo terráqueo" class="planet-background" />
+  
+  <div id="language-loop-text"></div>
+
+  <div class="overlay-text-loop">
+    <p>Selecciona tu idioma • Choose your language • Sélectionnez votre langue • 选择你的语言 • اختر لغتك • भाषा चुनें</p>
   </div>
+
+  <div class="language-options">
+    <button onclick="setLanguage('es')">Español</button>
+    <button onclick="setLanguage('en')">English</button>
+    <button onclick="setLanguage('fr')">Français</button>
+    <button onclick="setLanguage('zh')">中文</button>
+    <button onclick="setLanguage('ar')">العربية</button>
+    <button onclick="setLanguage('hi')">हिन्दी</button>
+  </div>
+</div>
 
   <!-- Contenedor de burbujas estilo chicle -->
   <div class="bubble-container hidden" id="bubble-container">
