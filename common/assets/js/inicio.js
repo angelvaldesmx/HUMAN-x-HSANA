@@ -21,34 +21,51 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Mostrar manifiesto con mensaje aleatorio
-function showManifesto(targetPage) {
+async function showManifesto(targetPage) {
   const manifesto = document.getElementById('manifesto');
   manifesto.classList.remove('hidden');
   manifesto.setAttribute('data-target', targetPage);
 
-  const messages = {
-    es: [
-      "Sanar con dignidad es un acto revolucionario. Este token es solo una excusa para crear comunidad. 🕊️",
-      "El sistema no nos define. Nos levantamos con propósito y humanidad. 💫",
-      "HSANA no es solo un token. Es un abrazo colectivo. 🤍"
-    ],
-    en: [
-      "Healing with dignity is a revolutionary act. This token is just an excuse to build community. 🕊️",
-      "We are not defined by the system. We rise with purpose and humanity. 💫",
-      "HSANA is more than a token. It's a collective embrace. 🤍"
-    ],
-    fr: [
-      "Guérir avec dignité est un acte révolutionnaire. Ce token est une excuse pour créer une communauté. 🕊️",
-      "Le système ne nous définit pas. Nous nous élevons avec humanité. 💫",
-      "HSANA est plus qu'un token. C'est une étreinte collective. 🤍"
-    ]
-  };
-
   const lang = localStorage.getItem('selectedLanguage') || 'es';
-  const text = messages[lang] || messages['es'];
 
-  document.getElementById('manifesto-text').textContent =
-    text[Math.floor(Math.random() * text.length)];
+  // Define el prompt personalizado
+  const prompt = `
+Eres una voz poética, rebelde y empática que habla en nombre de una comunidad que ha vivido dolor, pero que elige sanar con dignidad. 
+Genera un mensaje breve y único (máximo 2 frases) como manifiesto de bienvenida. No debe sonar a motivación barata ni frases vacías.
+
+Imita el estilo de Ángel Valdés: mezcla dulzura, honestidad cruda y lenguaje coloquial. Integra uno o dos emojis que acompañen el tono, sin exagerar. 
+Usa el idioma: ${lang.toUpperCase()}.
+
+Evita clichés como “todo estará bien”. Usa imágenes poéticas, ideas abstractas o afirmaciones disruptivas que conmuevan y provoquen. 
+Este mensaje se mostrará al usuario después de que una burbuja explote como chicle rosado en su pantalla antes de entrar a un sitio llamado HSANA. 
+Haz que suene como un susurro íntimo o un abrazo mental.
+`;
+
+  try {
+    const response = await fetch("https://js.puter.com/v2/", {
+      method: "POST",
+      headers: {
+      "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        model: "gpt-4.1", // o "gpt-3.5-turbo"
+        messages: [
+          { role: "system", content: "Eres un asistente que genera manifiestos poéticos únicos según el idioma." },
+          { role: "user", content: prompt }
+        ],
+        temperature: 0.8,
+        max_tokens: 100
+      })
+    });
+
+    const data = await response.json();
+    const text = data.choices?.[0]?.message?.content || "Sanar con dignidad es un acto revolucionario. 🕊️";
+    document.getElementById('manifesto-text').textContent = text;
+  } catch (err) {
+    console.error("Error generando manifiesto:", err);
+    document.getElementById('manifesto-text').textContent =
+      "Sanar con dignidad es un acto revolucionario. Este token es solo una excusa para crear comunidad. 🕊️";
+  }
 }
 
 // Redirige después del manifiesto
