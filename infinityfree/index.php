@@ -17,7 +17,8 @@
   <!-- Selección de idioma -->
   <div class="language-selector">
     <img src="../common/assets/images/globe.jpg" alt="Globo terráqueo" class="planet-background" />
-    <div class="overlay-text-loop">
+    <div class="overlay-text-loop" id="language-loop-text"></div>
+      
       <p>Selecciona tu idioma • Choose your language • Sélectionnez votre langue • 选择你的语言 • اختر لغتك • भाषा चुनें</p>
     </div>
     <div class="language-options">
