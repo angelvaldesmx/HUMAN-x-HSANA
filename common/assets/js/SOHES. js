@@ -1,0 +1,5 @@
+function closePopup() {
+  document.getElementById("videoPopup").classList.remove("active");
+  document.getElementById("mainContent").classList.remove("hidden");
+  document.getElementById("backgroundBlur").classList.remove("blur");
+}
