@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SOHES • Token Emocional</title>
+  <link rel="stylesheet" href="sohes.css" />
+</head>
+<body>
+
+  <!-- 🎬 Ventana Emergente de Video -->
+  <div id="videoPopup" class="popup active">
+    <div class="popup-content">
+      <button class="close-btn" onclick="closePopup()">✕</button>
+      <iframe class="intro-video" src="https://www.youtube.com/embed/YOUR_VIDEO_ID?autoplay=1&mute=1&controls=0&rel=0&modestbranding=1"
+        frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+
+  <!-- 🌌 Fondo fijo con blur -->
+  <div id="backgroundBlur" class="background-image blur"></div>
+
+  <!-- 🔲 Contenido principal oculto hasta que se cierre el video -->
+  <div id="mainContent" class="main-container hidden">
+    <header>
+      <h1>SOHES</h1>
+      <p>El primer token emocional para la humanidad 💖</p>
+    </header>
+
+    <div class="btn-group">
+      <button onclick="window.location.href='#airdrop'">🎁 Reclama tu Airdrop</button>
+      <button onclick="window.location.href='#info'">📘 ¿Dónde usar estas monedas?</button>
+      <button onclick="window.location.href='https://worldapp.io/referral/tu-enlace'">🌐 ¿Aún no tienes Wallet?</button>
+    </div>
+
+    <!-- Aquí abajo puedes ir agregando más secciones como el airdrop, info, etc. -->
+  </div>
+
+  <script src="sohes.js"></script>
+</body>
+</html>
