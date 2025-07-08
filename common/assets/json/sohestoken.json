@@ -1,0 +1,26 @@
+{
+  "name": "Sohes Token",
+  "symbol": "SOHES",
+  "description": "Sohes es el token emocional del ecosistema Hsana. Representa esperanza, estabilidad mental, y el poder de sanar desde lo individual hacia lo colectivo.",
+  "image": "https://yourdomain.com/images/sohes.png",
+  "external_url": "https://hsanasystem.org/sohes",
+  "attributes": [
+    {
+      "trait_type": "Ecosistema",
+      "value": "Hsana"
+    },
+    {
+      "trait_type": "Tipo de Token",
+      "value": "ERC20"
+    },
+    {
+      "trait_type": "Usabilidad",
+      "value": "Intercambio - Recompensas - Comunidad"
+    },
+    {
+      "trait_type": "Valor Emocional",
+      "value": "Aliento"
+    }
+  ],
+  "background_color": "ffffff"
+}
