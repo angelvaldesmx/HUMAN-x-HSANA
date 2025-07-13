@@ -6,6 +6,10 @@
   font-family: 'Poppins', sans-serif;
 }
 
+html, body {
+  height: 100%;
+}
+
 body {
   background-color: #0e0e0e;
   overflow: hidden;
@@ -13,6 +17,7 @@ body {
   color: white;
 }
 
+/* 🌀 TEXTO DE BIENVENIDA FLOTANTE */
 #language-loop-text {
   position: absolute;
   top: 0;
@@ -44,19 +49,20 @@ body {
   }
 }
 
-/* 🌍 FONDO DE PLANETA */
+/* 🌍 SELECTOR DE IDIOMA */
 .language-selector {
   position: absolute;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   z-index: 10;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
   text-align: center;
-  background: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.8);
   backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
 }
 
 .planet-background {
@@ -70,7 +76,7 @@ body {
   filter: blur(3px) brightness(0.6);
 }
 
-/* 🗣 TEXTO DESCRIPTIVO DE IDIOMA */
+/* 🗣 TEXTO DESCRIPTIVO */
 .overlay-text-loop {
   margin-bottom: 1.5rem;
   font-size: 1rem;
@@ -90,9 +96,15 @@ body {
   cursor: pointer;
   transition: transform 0.3s ease;
 }
+
 .language-options button:hover {
   transform: scale(1.1);
   background-color: #ffc0de;
+}
+
+button:focus {
+  outline: 2px dashed #ff9bd3;
+  outline-offset: 2px;
 }
 
 /* 🫧 BURBUJAS */
@@ -120,6 +132,7 @@ body {
   box-shadow: 0 0 15px 5px rgba(255, 102, 196, 0.3), inset 0 0 10px rgba(255,255,255,0.2);
   transition: transform 0.4s ease, box-shadow 0.4s ease;
   backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
   position: relative;
 }
 
@@ -127,17 +140,12 @@ body {
   0%, 100% { transform: translateY(0px); }
   50% { transform: translateY(-15px); }
 }
-@media (max-width: 768px) {
-  .bubble {
-    width: 150px;
-    height: 150px;
-  }
-}
 
 .bubble:hover {
   transform: scale(1.2);
   box-shadow: 0 0 30px rgba(255, 105, 180, 0.6);
 }
+
 .bubble span {
   color: #fff;
   text-align: center;
@@ -145,6 +153,7 @@ body {
   opacity: 0;
   transition: opacity 0.3s ease;
 }
+
 .bubble:hover span {
   opacity: 1;
 }
@@ -171,7 +180,9 @@ body {
   animation: floatParticles 8s infinite ease-in-out;
   pointer-events: none;
   backdrop-filter: blur(1.5px);
+  -webkit-backdrop-filter: blur(1.5px);
 }
+
 /* 🎉 MANIFIESTO */
 .manifesto-modal {
   position: fixed;
@@ -180,7 +191,7 @@ body {
   width: 100%;
   height: 100%;
   background: #ff69b4;
-  z-index: 99;
+  z-index: 900;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -206,14 +217,17 @@ body {
   text-align: center;
   animation: fadeInUp 0.8s ease;
 }
+
 .manifesto-content h2 {
   font-size: 1.8rem;
   margin-bottom: 1rem;
 }
+
 .manifesto-content p {
   font-size: 1rem;
   margin-bottom: 1.5rem;
 }
+
 .manifesto-content button {
   background: #ff5eab;
   border: none;
@@ -224,6 +238,7 @@ body {
   cursor: pointer;
   transition: background 0.3s ease;
 }
+
 .manifesto-content button:hover {
   background: #ff85c1;
 }
@@ -260,11 +275,16 @@ body {
   }
 }
 
+/* Utilidad */
 .hidden {
   display: none;
-  }
+}
 
-/* 📱 RESPONSIVO PARA PANTALLAS PEQUEÑAS */
+.fade-in {
+  animation: fadeInUp 1.2s ease forwards;
+}
+
+/* 📱 RESPONSIVO */
 @media (max-width: 768px) {
   .language-options {
     flex-wrap: wrap;
