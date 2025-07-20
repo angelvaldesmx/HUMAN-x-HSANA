@@ -1,0 +1,19 @@
+{
+  "name": "Sohes Token List",
+  "timestamp": "2025-07-20T00:00:00Z",
+  "version": {
+    "major": 1,
+    "minor": 0,
+    "patch": 0
+  },
+  "tokens": [
+    {
+      "chainId": 480,
+      "address": "0x7fbc20b8c301ddAca1063c7E45fF434548fD6C89",
+      "symbol": "SOHES",
+      "name": "Sohora Emotional Support",
+      "decimals": 18,
+      "logoURI": "https://raw.githubusercontent.com/angelvaldesmx/HUMAN-x-HSANA/refs/heads/main/common/assets/images/isotope-sohes.svg"
+    }
+  ]
+}
