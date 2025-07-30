@@ -4,6 +4,7 @@
   "description": "Sohes es el token emocional del ecosistema Hsana. Representa esperanza, estabilidad mental, y el poder de sanar desde lo individual hacia lo colectivo.",
   "image": "https://raw.githubusercontent.com/angelvaldesmx/HUMAN-x-HSANA/refs/heads/main/common/assets/images/isotope-sohes.svg",
   "external_url": "https://humanxhsana.angelvaldesmx.qzz.io/sohes",
+  "background_color": "ffffff",
   "attributes": [
     {
       "trait_type": "Ecosistema",
@@ -11,7 +12,7 @@
     },
     {
       "trait_type": "Tipo de Token",
-      "value": "ERC20"
+      "value": "Multichain ERC20 + SPL"
     },
     {
       "trait_type": "Usabilidad",
@@ -22,5 +23,26 @@
       "value": "Aliento"
     }
   ],
-  "background_color": "ffffff"
+  "properties": {
+    "category": "token",
+    "files": [
+      {
+        "uri": "https://raw.githubusercontent.com/angelvaldesmx/HUMAN-x-HSANA/refs/heads/main/common/assets/images/isotope-sohes.svg",
+        "type": "image/svg+xml"
+      }
+    ],
+    "networks": {
+      "worldchain": {
+        "chain": "WorldChain",
+        "contract_address": "0x7fbc20b8c301ddAca1063c7E45fF434548fD6C89",
+        "decimals": 18,
+        "max_supply": "10000"
+      },
+      "solana": {
+        "chain": "Solana",
+        "mint_address": "",
+        "decimals": 6
+      }
+    }
+  }
 }
